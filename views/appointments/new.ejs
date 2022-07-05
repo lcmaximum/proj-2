@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+<h1>New Appointment</h1>
+
+<form id="new-form" action="/appointments" method="POST">
+    <label>Event 
+    <input type="text" name="event"></label>
+    <label>Date and time
+    <input type="datetime-local" name="when"></label>
+     <label>Location
+      <input type = 'text' name = 'where'></label> 
+    <label>When to leave
+      <input type="datetime-local" name="leavingAt">
+    </label>
+    <label>Transportation
+      <select name="transportation">
+        <option value="none">None (home)</option>
+        <option value="walk">Walking</option>
+        <option value="bike">Biking</option>
+        <option value="subway">Bus or subway</option>
+        <option value="rideshare">Rideshare</option>
+        <option value="drive">Driving</option>
+      </select>
+    </label>
+
+    <input type="submit" value="Add Appointment">
+  </form>
+  
+  <%- include('../partials/footer') %>
+  
+
+

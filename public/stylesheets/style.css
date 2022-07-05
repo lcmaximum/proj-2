@@ -1,0 +1,17 @@
+header {
+    display: flex;
+    flex-direction: row-reverse;
+    background-color:mediumorchid;
+}
+
+header a {
+    font-size: 22px;
+    color:aquamarine;
+    text-decoration: none;
+}
+
+header a:hover {
+    font-size: 24px;
+    font-weight: 700;
+    background-color:chartreuse;
+}

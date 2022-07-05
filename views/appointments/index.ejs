@@ -1,0 +1,39 @@
+<%- include('../partials/header') %>
+<%- include('../partials/header') %>
+
+<h1>All Appointments</h1>
+
+
+  <h4>No appointments yet. <a href="/appointments/new">Add an appointment</a>
+
+<table>
+    <thead>
+      <tr>
+        <th>WHEN</th>
+        <th>WHAT</th>
+        <th>WHERE</th>
+        <th>HOW</th>
+        <th id ="prep-col">GETTING READY</th>
+        
+     </tr>
+    </thead>
+    <tbody>
+
+      <% appointments.forEach(function(f) { %>
+        <tr>
+          <td><%= f.when %><br />Leaving: <%= f.leavingAt %></td>
+          <td><%= f.event %></td>
+          <td><%= f.where %></td>
+          <td><%= f.transportation %></td>
+          <td><a href='/appointments/<%= f._id %>'>Details</a></td>
+        </tr>
+        <% }); %>
+    </tbody>
+  </table>   
+<p><a href='/appointments/new'>Add new</a></p>
+
+
+<%- include('../partials/footer') %>
+
+  
+<%- include('../partials/footer') %>

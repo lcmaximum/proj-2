@@ -1,1 +1,44 @@
+Log in to search by service or offer services
+
+
+from movies reviewschema
+ user: {type: Schema.Types.ObjectId, ref: 'User'},
+
+
+
+
+
+
+
 add state options to schema
+entities: users, providers, services, reviews
+
+user properties
+-login info
+-contact info
+-isProvider: false
+-reviewsWritten
+
+provider is a special kind of user - properties
+-location (state)
+-services offered
+-reviewsReceived
+
+services (boolean)
+-fullservice
+-supplypickup
+-supplydropoff
+-catpickup
+-performsurgery
+-catreturn
+-education
+
+review properties
+-author
+-provider
+-rating
+-comment
+
+
+icebox: in-app messaging and requests
+

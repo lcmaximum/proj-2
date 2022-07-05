@@ -1,0 +1,73 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+<div id = 'show-date'>
+    <div id = 'apt-when'> 
+    <%= appointment.when %></div>
+    <div id="apt-leaving">
+        <%= appointment.leavingAt %>
+    </div>
+    <div id="transportation">
+        <%= appointment.transportation %>
+    </div>
+</div>
+
+<div id="show-event">
+    <div id ="apt-event"><%= appointment.event %></div>
+    <div id="apt-where"><%= appointment.where %> </div>
+    <% if (appointment.attendees.length) { %>
+    <div id="apt-with"> <%= appointment.attendees %></div>
+    <% } %>
+
+
+<div id = 'attendees'></div>
+<h2> Add ATTENDEES</h2>
+
+<form id="attendee-form" action="/appointments/<%=appointment._id%>/attendees" method="POST">
+    <label>Attendee name
+        <input type="text" name="contactName">
+    </label>
+<label> Attendee email (optional)
+    <input type ="text" name = "contactEmail">
+</label>
+    <label>Attendee phone (optional)
+    <input type ='number' name="contactPhone"></label>
+    <input type="submit" value="Add Attendee">
+  </form>
+
+<div id="get-ready">
+   <h2> Getting Ready For This Appointment</h2>
+   <h4><%=appointment.event%></h4>
+    <div id="action-items">
+       <h3>Action items </h3>
+<% if (appointment.preparations.length) %>
+<ul>
+    <% appointment.preparations.forEach( function(p) {%>
+    <li> <%= p.actionItems %></li>
+  
+</ul>
+  <%})%>
+<h5>None yet. </h5>
+
+<div id="todos"></div>
+<form id="todo-form" action="/appointments/<%=appointment._id%>/todos" method="POST">
+<label>Add an action item 
+    <input type="text" name="actionItems"></label>
+    <input type="submit" value="Update List">
+</form>
+
+ </div>
+<div id="packing-list">
+<h3>Packing List</h3>
+<h5>No items yet.</h5>
+
+<form id="packing-form" action="/appointments/<%=appointment._id%>/packing" method="POST">
+    <label>Add an item
+        <input type="text">
+    </label>
+    <input type="submit" value="Add to List">  
+</form>
+</div>
+    </div>
+</div>
+<%- include('../partials/footer') %>
